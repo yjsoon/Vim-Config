@@ -1,7 +1,5 @@
-colorscheme vividchalk
-
-" set font to Monaco 14pt
-set guifont=Monaco:h14
+" set font
+set guifont=Inconsolata:h16
 set linespace=1
 
 " turn on line numbering
@@ -16,5 +14,8 @@ if has("gui_running")
 endif
 
 " Tweak invisibles color to be a little darker
-highlight NonText guifg=#333333
-highlight SpecialKey guifg=#333333
+highlight NonText guifg=#222222
+highlight SpecialKey guifg=#222222
+
+" Set window size and position
+set lines=48 columns=100 

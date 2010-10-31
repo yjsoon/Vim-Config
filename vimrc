@@ -2,15 +2,18 @@
 set nocompatible
 
 " load all the bundles
+filetype off
 call pathogen#runtime_append_all_bundles()
-
 filetype plugin indent on
+
+set modelines=0
+
 syntax on
 
 " General Settings
 set nowrap
 set hidden
-set list "show invisibles
+"set list "show invisibles
 
 " Tabs
 set tabstop=2 " Use 2 spaces for tabs
@@ -19,6 +22,7 @@ set shiftwidth=2 " sets spaces used for indention
 set autoindent " continue indention from previous line
 set expandtab " tab key inserts spaces instead of tabs
 set backspace=2 " start,indent
+set ruler
 
 " Do not use swapfiles or backup since writebackup is used
 " writebackup is still used, so a copy is always kept in memory
@@ -80,10 +84,10 @@ nmap <D-/> gc
 vmap <D-/> gcgv
 
 " Toggle show invisibles
-nmap <leader>l :set list!<CR>
+"nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:▸\ ,eol:¬
 
 " Shift-w maps to Control-W
 map <S-w> <C-w>
@@ -146,3 +150,4 @@ nmap <leader><S-s> :call Preserve("%s/\\s\\+$//e")<CR>
 " Retab the document (tabs to spaces)
 nmap <silent> <leader><S-t> :retab!<CR>
 
+colorscheme molokai
