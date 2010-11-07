@@ -18,6 +18,7 @@ highlight SpecialKey guifg=#222222
 " Set window size and position
 set lines=48 columns=120 
 
+set relativenumber
 
 " Open PeepOpen
 "if has("gui_macvim")

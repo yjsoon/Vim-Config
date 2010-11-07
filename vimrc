@@ -32,7 +32,6 @@ set ruler
 " Personalisations 
 set encoding=utf-8
 set visualbell
-set relativenumber
 
 " Regex handling - less \s, case handling
 nnoremap / /\v
