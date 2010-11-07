@@ -1,3 +1,5 @@
+colorscheme molokai
+
 " no vi compatibility
 set nocompatible
 
@@ -9,6 +11,9 @@ filetype plugin indent on
 set modelines=0
 
 syntax on
+
+" set the LEADER key to ,
+let mapleader = ","
 
 " General Settings
 set nowrap
@@ -23,6 +28,48 @@ set autoindent " continue indention from previous line
 set expandtab " tab key inserts spaces instead of tabs
 set backspace=2 " start,indent
 set ruler
+
+" Personalisations 
+set encoding=utf-8
+set visualbell
+set relativenumber
+
+" Regex handling - less \s, case handling
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+
+" Searching
+set incsearch
+set showmatch 
+set hlsearch
+" \space will clear searches
+nnoremap <leader><space> :noh<cr>
+" % - bracket matching
+"nnoremap <tab> %
+"vnoremap <tab> %
+
+" No fallbacks!
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+" More keyboard things
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+nnoremap ; :
+
+" Save on losing focus
+au FocusLost * :wa
 
 " Do not use swapfiles or backup since writebackup is used
 " writebackup is still used, so a copy is always kept in memory
@@ -53,10 +100,6 @@ function! Preserve(command)
   call cursor(l, c)
 endfunction
 
-" map control left and control right to swap the buffer
-map <C-right> <ESC>:bn<CR>
-map <C-left> <ESC>:bp<CR>
-
 " map Command-j to Scroll Down
 map <D-j> <C-d>
 " map Command-k to Scroll Up
@@ -64,9 +107,6 @@ map <D-k> <C-u>
 
 " map Shift-U to REDO
 map <S-u> <C-r>
-
-" set the LEADER key to ,
-let mapleader = ","
 
 " Leader-v reloads the vimrc -- making all changes active (have to save first)
 map <silent> ,v :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
@@ -150,4 +190,13 @@ nmap <leader><S-s> :call Preserve("%s/\\s\\+$//e")<CR>
 " Retab the document (tabs to spaces)
 nmap <silent> <leader><S-t> :retab!<CR>
 
-colorscheme molokai
+" Edit vimrc
+nnoremap <leader>vimrc <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+" Window control: ,w to open new window and switch to it
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+

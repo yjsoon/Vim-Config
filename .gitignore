@@ -1,3 +1,4 @@
 .netrwhist
 snippets
 *.swp
+.DS_Store
