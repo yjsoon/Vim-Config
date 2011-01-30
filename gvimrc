@@ -1,6 +1,7 @@
 " set font
-set guifont=Menlo:h13
+set guifont=Menlo:h12
 set linespace=1
+colorscheme dax
 
 " disable expanded macvim toolbar
 if has("gui_running")
@@ -19,6 +20,12 @@ highlight SpecialKey guifg=#222222
 set lines=48 columns=120 
 
 set relativenumber
+
+" map Command-j to Scroll Down
+map <D-j> <C-d>
+" map Command-k to Scroll Up
+map <D-k> <C-u>
+
 
 " Open PeepOpen
 "if has("gui_macvim")

@@ -1,4 +1,4 @@
-colorscheme molokai
+colorscheme slate
 
 " no vi compatibility
 set nocompatible
@@ -16,7 +16,9 @@ syntax on
 let mapleader = ","
 
 " General Settings
-set nowrap
+set wrap
+set linebreak
+set nolist
 set hidden
 "set list "show invisibles
 
@@ -59,14 +61,14 @@ nnoremap ; :
 au FocusLost * :wa
 
 " No fallbacks
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" nnoremap <up> <nop>
+" nnoremap <down> <nop>
+" nnoremap <left> <nop>
+" nnoremap <right> <nop>
+" inoremap <up> <nop>
+" inoremap <down> <nop>
+" inoremap <left> <nop>
+" inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -98,11 +100,6 @@ function! Preserve(command)
   let @/=_s
   call cursor(l, c)
 endfunction
-
-" map Command-j to Scroll Down
-map <D-j> <C-d>
-" map Command-k to Scroll Up
-map <D-k> <C-u>
 
 " map Shift-U to REDO
 map <S-u> <C-r>
@@ -198,4 +195,13 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Ack
+nnoremap <leader>a :Ack
+
+" Markdown
+augroup mkd
+  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
+augroup END
+nmap <leader>m :set syntax=markdown<cr>
 
