@@ -12,7 +12,7 @@ set modelines=0
 
 syntax on
 
-" set the LEADER key to ,
+" set the :LEADER key to ,
 let mapleader = ","
 
 " General Settings
@@ -55,10 +55,9 @@ nnoremap <leader><space> :noh<cr>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
-nnoremap ; :
 
 " Save on losing focus
-au FocusLost * :wa
+" au FocusLost * :wa
 
 " No fallbacks
 " nnoremap <up> <nop>
@@ -83,8 +82,6 @@ set wildignore+=*.png,*.jpg,*.gif,*.ai,*.jpeg,*.psd,*.swp,*.jar,*.zip,*.gem,.DS_
 autocmd BufRead *.html.erb set ft=eruby.html
 autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
-set nofoldenable " Fuck code folding...
-
 set whichwrap+=<,>,h,l " allow backspace and cursor keys to cross line boundaries
 
 " A vim function that keeps your state
@@ -105,7 +102,7 @@ endfunction
 map <S-u> <C-r>
 
 " Leader-v reloads the vimrc -- making all changes active (have to save first)
-map <silent> ,v :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
+map <silent> ,v :source ~/.vimrc<CR>:source ~/.gvimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
 
 " NERDTree (Command-d / Leader-d)
 map <leader>d :NERDTreeToggle<CR>
@@ -124,9 +121,6 @@ vmap <D-/> gcgv
 
 " Use the same symbols as TextMate for tabstops and EOLs
 "set listchars=tab:▸\ ,eol:¬
-
-" Shift-w maps to Control-W
-map <S-w> <C-w>
 
 " ,w will easily switch window focus
 map <leader>w <C-w>w
@@ -205,3 +199,5 @@ augroup mkd
 augroup END
 nmap <leader>m :set syntax=markdown<cr>
 
+" Zen Coding
+"let g:user_zen_leader_key = "<C-z>"

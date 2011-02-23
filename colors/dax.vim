@@ -54,16 +54,16 @@ highlight PmenuSbar ctermbg=250 guibg=Grey
 highlight PmenuThumb cterm=reverse gui=reverse
 
 " Syntax group
-highlight Comment ctermfg=133 guifg=#86b4c1
+highlight Comment ctermfg=133 guifg=#66667d
 highlight Constant ctermfg=67 guifg=#66c9ee
 highlight Error ctermfg=215 ctermbg=88 guifg=#FFC66D guibg=#990000
 highlight Identifier ctermfg=67 guifg=#e5433b
 highlight Ignore ctermbg=235 guifg=bg
-highlight PreProc ctermfg=254 guifg=#E6E1DC
+highlight PreProc ctermfg=254 guifg=#77aaff
 highlight Special ctermfg=221 guifg=#ffddaa
 highlight Statement ctermfg=208 ctermbg=235 guifg=#ffa114 guibg=bg
 highlight Todo ctermfg=21 ctermbg=226 guifg=Blue guibg=Yellow
-highlight Type ctermfg=167 guifg=#ff4321
+highlight Type ctermfg=167 guifg=#bb7755
 highlight Underlined cterm=underline ctermfg=111 gui=underline guifg=#80a0ff
 highlight String ctermfg=118 guifg=#74e293
 highlight Number ctermfg=107 guifg=#A5C261

@@ -1,5 +1,5 @@
-" set font
-set guifont=Menlo:h12
+ set font
+set guifont=Consolas:h14
 set linespace=1
 colorscheme dax
 
@@ -26,9 +26,12 @@ map <D-j> <C-d>
 " map Command-k to Scroll Up
 map <D-k> <C-u>
 
-
 " Open PeepOpen
-"if has("gui_macvim")
-"  macmenu &File.New\ Tab key=<nop>
-"  map <D-t> <Plug>PeepOpen
-"end
+if has("gui_macvim")
+  map <leader>p <Plug>PeepOpen
+end
+
+" save sessions with .vis extension
+map <leader>s :mksession!  session.vis<CR>
+" automatically source vim sessions so I can open them with the finder
+au BufRead *.vis so %
