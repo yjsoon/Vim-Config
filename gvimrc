@@ -1,4 +1,3 @@
- set font
 set guifont=Consolas:h14
 set linespace=1
 colorscheme dax
@@ -17,7 +16,7 @@ highlight NonText guifg=#222222
 highlight SpecialKey guifg=#222222
 
 " Set window size and position
-set lines=48 columns=120 
+set lines=51 columns=180 
 
 set relativenumber
 

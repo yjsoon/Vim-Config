@@ -51,11 +51,6 @@ nnoremap <leader><space> :noh<cr>
 "nnoremap <tab> %
 "vnoremap <tab> %
 
-" More keyboard things
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
-
 " Save on losing focus
 " au FocusLost * :wa
 
@@ -68,8 +63,8 @@ vnoremap <F1> <ESC>
 " inoremap <down> <nop>
 " inoremap <left> <nop>
 " inoremap <right> <nop>
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 
 " Do not use swapfiles or backup since writebackup is used
 " writebackup is still used, so a copy is always kept in memory
@@ -84,30 +79,17 @@ autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 set whichwrap+=<,>,h,l " allow backspace and cursor keys to cross line boundaries
 
-" A vim function that keeps your state
-" http://technotales.wordpress.com/2010/03/31/preserve
-function! Preserve(command)
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  execute a:command
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
-
 " map Shift-U to REDO
 map <S-u> <C-r>
 
+" Edit vimrc
+nnoremap <leader>v <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " Leader-v reloads the vimrc -- making all changes active (have to save first)
-map <silent> ,v :source ~/.vimrc<CR>:source ~/.gvimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
+map <silent> ,vimrc :source ~/.vimrc<CR>:source ~/.gvimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
 
 " NERDTree (Command-d / Leader-d)
 map <leader>d :NERDTreeToggle<CR>
 map <D-d> :NERDTreeToggle<CR>
-map <leader>n :NERDTree<CR>
 " map <D-d> :execute 'NERDTreeToggle ' . getcwd()<CR>
 " navigates nerdtree to the current file
 map <leader><S-d> :NERDTree %:p:h<CR> 
@@ -117,13 +99,9 @@ nmap <D-/> gc
 vmap <D-/> gcgv
 
 " Toggle show invisibles
-"nmap <leader>l :set list!<CR>
-
+nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
-"set listchars=tab:▸\ ,eol:¬
-
-" ,w will easily switch window focus
-map <leader>w <C-w>w
+set listchars=tab:▸\ ,eol:¬
 
 " ,b will load up the buffer explorer
 map <leader>b :BufExplorerHorizontalSplit<CR>
@@ -180,18 +158,12 @@ nmap <leader><S-s> :call Preserve("%s/\\s\\+$//e")<CR>
 " Retab the document (tabs to spaces)
 nmap <silent> <leader><S-t> :retab!<CR>
 
-" Edit vimrc
-nnoremap <leader>vimrc <C-w><C-v><C-l>:e $MYVIMRC<cr>
-
 " Window control: ,w to open new window and switch to it
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" Ack
-nnoremap <leader>a :Ack
 
 " Markdown
 augroup mkd
@@ -200,4 +172,9 @@ augroup END
 nmap <leader>m :set syntax=markdown<cr>
 
 " Zen Coding
-"let g:user_zen_leader_key = "<C-z>"
+let g:user_zen_leader_key = "<C-z>"
+
+map <leader>j :join<cr>
+
+" YankRing
+let g:yankring_history_dir = '/tmp'
