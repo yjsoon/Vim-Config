@@ -1,16 +1,15 @@
-colorscheme slate
-
 " no vi compatibility
 set nocompatible
-
 " load all the bundles
 filetype off
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
-set modelines=0
-
 syntax on
+set background=dark
+colorscheme solarized
+
+set modelines=0
 
 " set the :LEADER key to ,
 let mapleader = ","
@@ -53,18 +52,6 @@ nnoremap <leader><space> :noh<cr>
 
 " Save on losing focus
 " au FocusLost * :wa
-
-" No fallbacks
-" nnoremap <up> <nop>
-" nnoremap <down> <nop>
-" nnoremap <left> <nop>
-" nnoremap <right> <nop>
-" inoremap <up> <nop>
-" inoremap <down> <nop>
-" inoremap <left> <nop>
-" inoremap <right> <nop>
-" nnoremap j gj
-" nnoremap k gk
 
 " Do not use swapfiles or backup since writebackup is used
 " writebackup is still used, so a copy is always kept in memory
@@ -112,8 +99,8 @@ map <D-t> <leader>t
 let g:CommandTMatchWindowAtTop=1
 
 " Set up Ack shortcuts (literal vs nonliteral)
-map <leader>f :Ack -Q 
-map <leader><S-f> :Ack 
+map <leader>a :Ack -Q 
+map <leader><S-a> :Ack 
 
 " Setup Command-e to use ctags (Control-])
 map <D-e> <C-]>
@@ -136,17 +123,14 @@ nmap <S-up> vk
 vmap <S-up> k
 nmap <S-k> vk
 vmap <S-k> k
-
 nmap <S-right> vl
 vmap <S-right> l
 nmap <S-l> vl
 vmap <S-l> l
-
 nmap <S-down> vj
 vmap <S-down> j
 nmap <S-j> vj
 vmap <S-j> j
-
 nmap <S-left> v
 vmap <S-left> h
 nmap <S-h> vh
@@ -159,7 +143,7 @@ nmap <leader><S-s> :call Preserve("%s/\\s\\+$//e")<CR>
 nmap <silent> <leader><S-t> :retab!<CR>
 
 " Window control: ,w to open new window and switch to it
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>n <C-w>v<C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -174,7 +158,13 @@ nmap <leader>m :set syntax=markdown<cr>
 " Zen Coding
 let g:user_zen_leader_key = "<C-z>"
 
-map <leader>j :join<cr>
-
 " YankRing
 let g:yankring_history_dir = '/tmp'
+map <C-y> :YRShow<cr>
+
+" Some settings for LaTeX
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+
+" Join lines
+nmap <leader>J :join<cr>

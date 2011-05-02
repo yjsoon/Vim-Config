@@ -114,3 +114,6 @@ highlight link Debug Special
 
 " vim:ff=unix:
 
+"Custom
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment

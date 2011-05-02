@@ -1,6 +1,6 @@
 set guifont=Consolas:h14
+set antialias
 set linespace=1
-colorscheme dax
 
 " disable expanded macvim toolbar
 if has("gui_running")
@@ -11,12 +11,8 @@ if has("gui_running")
   set guioptions-=r
 endif
 
-" Tweak invisibles color to be a little darker
-highlight NonText guifg=#222222
-highlight SpecialKey guifg=#222222
-
 " Set window size and position
-set lines=51 columns=180 
+set lines=60 columns=130 
 
 set relativenumber
 
