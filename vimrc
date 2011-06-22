@@ -1,15 +1,18 @@
 " no vi compatibility
 set nocompatible
-" load all the bundles
+
+" load all bundles
 filetype off
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
+" syntax highlighting
 syntax on
 set background=dark
 colorscheme solarized
 
 set modelines=0
+set laststatus=2
 
 " set the :LEADER key to ,
 let mapleader = ","
@@ -19,10 +22,15 @@ set wrap
 set linebreak
 set nolist
 set hidden
-"set list "show invisibles
+set wildmenu
+
+" Edit vimrc
+nmap <silent> <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+" Leader-v reloads the vimrc -- making all changes active (have to save first)
+map <silent> <leader>sv :source ~/.vimrc<CR>:source ~/.gvimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
 
 " Tabs
-set tabstop=2 " Use 2 spaces for tabs
+set tabstop=4 " Use 2 spaces for tabs
 set smarttab " Automatic indenting
 set shiftwidth=2 " sets spaces used for indention
 set autoindent " continue indention from previous line
@@ -69,11 +77,6 @@ set whichwrap+=<,>,h,l " allow backspace and cursor keys to cross line boundarie
 " map Shift-U to REDO
 map <S-u> <C-r>
 
-" Edit vimrc
-nnoremap <leader>v <C-w><C-v><C-l>:e $MYVIMRC<cr>
-" Leader-v reloads the vimrc -- making all changes active (have to save first)
-map <silent> ,vimrc :source ~/.vimrc<CR>:source ~/.gvimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
-
 " NERDTree (Command-d / Leader-d)
 map <leader>d :NERDTreeToggle<CR>
 map <D-d> :NERDTreeToggle<CR>
@@ -89,10 +92,6 @@ vmap <D-/> gcgv
 nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
-
-" ,b will load up the buffer explorer
-map <leader>b :BufExplorerHorizontalSplit<CR>
-let g:bufExplorerSplitBelow=1 
 
 " Setup Command-t shortcut
 map <D-t> <leader>t
@@ -115,7 +114,7 @@ vmap <D-]> >gv
 " http://vimcasts.org/episodes/the-edit-command/
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+"map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Replicate textmate shift arrow/movement in order to select stuff
@@ -168,3 +167,9 @@ let g:tex_flavor='latex'
 
 " Join lines
 nmap <leader>J :join<cr>
+
+" BufExplorer
+let g:bufExplorerSplitBelow=1        " Split new window below current.
+
+" Change directory
+map ,cd :cd %:p:h<CR>

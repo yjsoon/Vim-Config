@@ -5,7 +5,6 @@ set linespace=1
 " disable expanded macvim toolbar
 if has("gui_running")
   set guioptions=egmrt
-
   " need this to enable the super retarded MacVim horizontal scrollbar
   set guioptions-=b
   set guioptions-=r
@@ -20,11 +19,6 @@ set relativenumber
 map <D-j> <C-d>
 " map Command-k to Scroll Up
 map <D-k> <C-u>
-
-" Open PeepOpen
-if has("gui_macvim")
-  map <leader>p <Plug>PeepOpen
-end
 
 " save sessions with .vis extension
 map <leader>s :mksession!  session.vis<CR>
