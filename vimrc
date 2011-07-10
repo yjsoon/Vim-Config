@@ -24,10 +24,6 @@ set nolist
 set hidden
 set wildmenu
 
-" Edit vimrc
-nmap <silent> <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
-" Leader-v reloads the vimrc -- making all changes active (have to save first)
-map <silent> <leader>sv :source ~/.vimrc<CR>:source ~/.gvimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
 
 " Tabs
 set tabstop=4 " Use 2 spaces for tabs
@@ -172,4 +168,29 @@ nmap <leader>J :join<cr>
 let g:bufExplorerSplitBelow=1        " Split new window below current.
 
 " Change directory
-map ,cd :cd %:p:h<CR>
+map <leader>cd :cd %:p:h<CR>
+
+" Statusline
+":set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ [BRANCH=%{fugitive#statusline()}] 
+set statusline=
+set statusline +=%1*\ %n\ %*            "buffer number
+set statusline +=%5*%{&ff}%*            "file format
+set statusline +=%3*%y%*                "file type
+set statusline +=%4*\ %<%F%*            "full path
+set statusline +=%3*%m%*                "modified flag
+set statusline +=%1*%=%5l%*             "current line
+set statusline +=%2*/%L%*               "total lines
+set statusline +=%3*\ (%P)    "percent through file
+set statusline +=%1*%4c\ %*             "column number
+set statusline +=%2*%{fugitive#statusline()}\ %*          "git branch
+hi User1 guifg=#b58900 guibg=#073642
+hi User2 guifg=#dc322f guibg=#073642
+hi User3 guifg=#586e75 guibg=#073642
+hi User4 guifg=#859900 guibg=#073642
+hi User5 guifg=#cb4b16 guibg=#073642
+
+
+" Edit vimrc
+nmap <silent> <leader>ev :tabe $MYVIMRC<cr>
+" Leader-v reloads the vimrc -- making all changes active (have to save first)
+map <silent> <leader>sv :source ~/.vimrc<CR>:source ~/.gvimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
