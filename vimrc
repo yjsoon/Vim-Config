@@ -174,11 +174,13 @@ map <leader>cd :cd %:p:h<CR>
 ":set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]\ [BRANCH=%{fugitive#statusline()}] 
 set statusline=
 set statusline +=%1*\ %n\ %*            "buffer number
-set statusline +=%5*%{&ff}%*            "file format
-set statusline +=%3*%y%*                "file type
-set statusline +=%4*\ %<%F%*            "full path
+" set statusline +=%4*\\ %<%F%*            "full path
+set statusline +=%4*\ %t%*              "file name
+set statusline +=%3*\[%{getcwd()}]      "path
 set statusline +=%3*%m%*                "modified flag
-set statusline +=%1*%=%5l%*             "current line
+set statusline +=%5*%=%{&ff}%*            "file format
+set statusline +=%3*%y%*                "file type
+set statusline +=%1*%5l%*             "current line
 set statusline +=%2*/%L%*               "total lines
 set statusline +=%3*\ (%P)    "percent through file
 set statusline +=%1*%4c\ %*             "column number
