@@ -185,12 +185,16 @@ set statusline +=%2*/%L%*               "total lines
 set statusline +=%3*\ (%P)    "percent through file
 set statusline +=%1*%4c\ %*             "column number
 set statusline +=%2*%{fugitive#statusline()}\ %*          "git branch
-hi User1 guifg=#b58900 guibg=#073642
-hi User2 guifg=#dc322f guibg=#073642
-hi User3 guifg=#586e75 guibg=#073642
-hi User4 guifg=#859900 guibg=#073642
-hi User5 guifg=#cb4b16 guibg=#073642
-
+" hi User1 guifg=#b58900 guibg=#073642
+" hi User2 guifg=#dc322f guibg=#073642
+" hi User3 guifg=#586e75 guibg=#073642
+" hi User4 guifg=#859900 guibg=#073642
+" hi User5 guifg=#cb4b16 guibg=#073642
+hi User1 guifg=#cb4b16 guibg=#eee8d5
+hi User2 guifg=#6c71c4 guibg=#eee8d5
+hi User3 guifg=#657b83 guibg=#eee8d5
+hi User4 guifg=#d33682 guibg=#eee8d5
+hi User5 guifg=#268bd2 guibg=#eee8d5
 
 " Edit vimrc
 nmap <silent> <leader>ev :tabe $MYVIMRC<cr>
