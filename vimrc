@@ -98,7 +98,7 @@ map <leader>a :Ack -Q
 map <leader><S-a> :Ack 
 
 " Setup Command-e to use ctags (Control-])
-map <D-e> <C-]>
+"map <D-e> <C-]>
 
 " Replicate textmate CMD-[ and CMD-] for indentation
 nmap <D-[> <<
@@ -148,7 +148,7 @@ nnoremap <C-l> <C-w>l
 augroup mkd
   autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
 augroup END
-nmap <leader>m :set syntax=markdown<cr>
+nmap <leader>md :set syntax=markdown<cr>
 
 " Zen Coding
 let g:user_zen_leader_key = "<C-z>"
@@ -200,3 +200,16 @@ hi User5 guifg=#268bd2 guibg=#eee8d5
 nmap <silent> <leader>ev :tabe $MYVIMRC<cr>
 " Leader-v reloads the vimrc -- making all changes active (have to save first)
 map <silent> <leader>sv :source ~/.vimrc<CR>:source ~/.gvimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>:NERDTreeClose<CR>
+
+" Folding
+nmap <leader>mk :mkview<CR>
+nmap <leader>ml :loadview<CR>
+set foldmethod=marker
+
+"XML auto-formatting
+au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+
+" Temp - Eclipse-related
+nmap <silent> <leader>xb :Ant rebuild<cr>
+nmap <silent> <leader>xr :Ant run<cr>
+let g:EclimBrowser='open'
